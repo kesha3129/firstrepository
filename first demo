@@ -1,0 +1,125 @@
+  <?php
+  error_reporting(0);
+  ?>
+  <html>
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Photography</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <?php
+ $path = base_url()."image/";
+?>
+      </head>
+      <style>
+      .img{
+        background-color: #000
+        border: 5px solid #000;
+        margin-right: 50px;
+        margin-left: 150px;
+        margin-top: 100px;
+        /*margin-bottom: 50px;*/
+      }
+      .bg{
+        /*height: 500px;*/
+        /*width: 600px;*/
+        /*margin-left: 100px;*/
+        background-color: #000;
+      }
+      .description{
+        margin-top: 20px;
+         /*margin-right: 50px;*/
+        margin-left: 150px;
+        /*height: 50px;*/
+        /*width: 250px;*/
+      }
+.btn-primary {
+    color: #fff;
+    background-color: #333;
+    transition: .5s;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    border:1px solid #ddd;
+    display: inline-block;
+}
+</style>
+      <body class="bg">
+<div class="navbar-nav navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div> 
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href= "<?php echo base_url(); ?>index.php/photography_controller/baby"><i class="icon-home icon-white"></i> Baby</a></li>              
+              <li><a href="<?php echo base_url(); ?>index.php/photography_controller/krishna"><i class="icon-user icon-white"></i> Krishna</a></li>
+              <li><a href="<?php echo base_url(); ?>index.php/photography_controller/nature"><i class="icon-user icon-white"></i> Natural</a></li>
+              <li><a href="<?php echo base_url(); ?>index.php/photography_controller/wedding"><i class="icon-user icon-white"></i> Wedding</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+              </div>
+</div>
+
+
+        <div class="container-fluid">
+          <div class="bg">
+          <div class="row">
+            <!-- <div class="col-lg-12"> -->
+            
+              <!-- <div class="col-lg-3"></div> -->
+              <?php
+               foreach ($baby_img as $row)
+              {  ?>
+              <div class="col-lg-4 col-xs-6 col-sm-6 col-md-6">                   
+              <table><tr><td>   
+             <img src="<?php  echo $path.$row['image']; ?>" height="190px;" width="200px;" class="img img-rounded" alt="" /></td></tr>
+             <tr><td><input type="text" value="<?php echo $row['description']; ?>" class="description"></td></tr>
+           </table>
+            </div>
+               <?php
+                 }                    
+               foreach ($krishna_img as $row)
+              {  ?> 
+              <div class="col-lg-4 col-xs-6 col-sm-6 col-md-6">   
+              <table><tr><td>                 
+             <img src="<?php  echo $path.$row['image']; ?>" height="150px;" width="200px;" class="img img-rounded" alt="" />
+             <tr><td><input type="text" value="<?php echo $row['description']; ?>" class="description"></td></tr> 
+           </table>
+         </div>
+               <?php
+                 }                     
+               foreach ($nature_img as $row)
+                {  ?> 
+                <div class="col-lg-4 col-xs-6 col-sm-6 col-md-6">  
+              <table><tr><td>
+             <img src="<?php  echo $path.$row['image']; ?>" height="150px;" width="200px;" class="img img-rounded" alt="" /> 
+             <tr><td><input type="text" value="<?php echo $row['description']; ?>" class="description"></td></tr>
+             </table>
+           </div>
+               <?php
+                 }                     
+               foreach ($wedding_img as $row)
+                 {  ?>  
+               <div class="col-lg-4 col-xs-6 col-sm-6 col-md-6"> 
+               <table><tr><td>
+             <img src="<?php  echo $path.$row['image']; ?>" height="150px;" width="200px;" class="img img-rounded" alt="" /> 
+             <tr><td><input type="text" value="<?php echo $row['description']; ?>" class="description"></td></tr>
+             </table>
+           </div>
+                <?php
+                 }                     
+                ?>
+          </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </body>
+      </html>
+                          
